@@ -32,6 +32,10 @@
                     </li>
                     {% endif %}
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_url' %}">Главная страница</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -61,7 +65,7 @@
         {% endif %}
         
         <li class="page-item active" aria-current="page">
-          <a class="page-link" href="#">{{ page_obj.number }} <span class="sr-only">(current)</span></a>
+          <a class="page-link" href="#">{{ page_obj.number }} <span class="sr-only">(текущая)</span></a>
         </li>
         
         {% if page_obj.has_next %}
