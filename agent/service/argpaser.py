@@ -1,7 +1,7 @@
 import argparse
 
 
-def parser()
+def parser():
     url = '127.0.0.1'
     port = 8000
     timer = 1

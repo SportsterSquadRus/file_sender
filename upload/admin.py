@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Number, FileClass
 
-# Register your models here.
+admin.site.register(Number)
+admin.site.register(FileClass)
+
+
+

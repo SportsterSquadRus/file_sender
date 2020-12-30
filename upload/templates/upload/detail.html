@@ -9,7 +9,13 @@
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <p>{{ file }}</p>
-        <footer class="blockquote-footer">Содержание файла: <cite title="Source Title">{{ data }}</cite></footer>
+        <p>
+        {% for number in file.numbers.all %}
+        {{ number }}
+          
+        {% endfor %}
+          </p>
+        <footer class="blockquote-footer">Оригинальное содержание файла: <cite title="Source Title">{{ data }}</cite></footer>
       </blockquote>
     </div>
   </div>    
