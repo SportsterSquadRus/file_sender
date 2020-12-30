@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'upload.apps.UploadConfig',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
 ]
 
 SITE_ID = 1
@@ -49,6 +50,24 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username' 
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
+
+LOGIN_REDIRECT_URL = '/upload/list/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/upload/list/'
+
+ACCOUNT_FORMS = {
+    'login': 'upload.forms.CustomLoginForm',
+    'signup': 'upload.forms.CustomSignupForm',
+    'reset_password': 'upload.forms.CustomResetPasswordForm',
+    'set_password': 'upload.forms.CustomSetPasswordForm',
+    'change_password': 'upload.forms.CustomChangePasswordForm',
+    'add_email': 'upload.forms.CustomAddEmailForm',
+    }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
