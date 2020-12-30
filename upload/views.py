@@ -15,7 +15,7 @@ def upload_file(request):
     files = request.FILES
     for key in files:
         data = files[key]
-        FileClass.objects.create(file=data)
+        FileClass.objects.create(obj=data)
 
     return HttpResponse("file added")
 

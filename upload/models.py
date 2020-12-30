@@ -1,5 +1,10 @@
 from django.db import models
+import os
 
 
 class FileClass(models.Model):
-    file = models.FileField(upload_to='static/')
+    obj = models.FileField(upload_to='static/')
+
+    def __str__(self):
+        return os.path.basename(self.obj.name)
+
