@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'upload.apps.UploadConfig',
+    'data.apps.DataConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
