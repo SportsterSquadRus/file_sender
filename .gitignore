@@ -4,4 +4,6 @@ static
 server_agent/__pycache__
 upload/__pycache__
 upload/migrations/__pycache__
+data/__pycache__
+data/migrations/__pycache__
 db.sqlite3

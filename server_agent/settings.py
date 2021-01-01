@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'upload.apps.UploadConfig',
+    'data.apps.DataConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -104,23 +105,23 @@ WSGI_APPLICATION = 'server_agent.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
- 'default': {
- 'ENGINE': 'django.db.backends.postgresql_psycopg2',
- 'NAME': 'hello_django_dev',
- 'USER': 'hello_django',
- 'PASSWORD': 'hello_django',
- 'HOST': 'db',
- 'PORT': 5432,
- }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {
+#  'default': {
+#  'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#  'NAME': 'hello_django_dev',
+#  'USER': 'hello_django',
+#  'PASSWORD': 'hello_django',
+#  'HOST': 'db',
+#  'PORT': 5432,
+#  }
+# }
 
 
 # Password validation
