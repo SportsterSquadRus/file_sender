@@ -9,3 +9,10 @@ class FilesListView(APIView):
         files = FileClass.objects.all()
         serializer = FileListSerializer(files, many=True)
         return Response(serializer.data)
+
+class FileDetialView(APIView):
+    def get(self, request, pk):
+        file_obj = FileClass.objects.get(id=pk)
+        serializer = FileListSerializer(file_obj)
+        return Response(serializer.data)
+        

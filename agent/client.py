@@ -16,5 +16,8 @@ while True:
     if files != hashes:
         files_to_send = hashes.difference(files)
         files.update(hashes)
-        file_sender.send(list(files_to_send))
+        sender_response = file_sender.send(list(files_to_send))
+        while sender_response == False:
+            sender_response = file_sender.send(list(files_to_send))
+            time.sleep(timer)
     time.sleep(timer)

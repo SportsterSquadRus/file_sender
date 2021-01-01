@@ -14,5 +14,11 @@ class FileSender:
         for i in range(len(file_list)):
 
             dict_of_files['file{}'.format(i)] = open(file_list[i][0], 'rb')
-        r = requests.post(self.url, files=dict_of_files)
-        print(r.text)
+        try:
+            r = requests.post(self.url, files=dict_of_files)
+            print(r.text)
+            return True
+        except:
+            print('No connection')
+            return False
+
