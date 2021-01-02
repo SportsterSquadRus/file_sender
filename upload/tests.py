@@ -21,7 +21,7 @@ class FileUploadTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_case(self):
-        lst = list(map(str, [randint(0, 255) for i in range(10000)]))
+        lst = list(map(str, [randint(1, 255) for i in range(10000)]))
         lst_str = ' '.join(lst)
 
         c = Client()
