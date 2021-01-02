@@ -14,7 +14,7 @@ def upload_file(request):
     for key in files:
         data_obj = files[key]
         numbers = tuple(map(lambda x: Number.objects.create(
-            num=int(x) if str(x).isdecimal() and int(x) > 0 else 1), 
+            num=int(x) if str(x).isdecimal() and  256 > int(x) > 0 else 1), 
             data_obj.read().decode('utf-8').split()))
         new_file = FileClass.objects.create(obj=data_obj)
         new_file.numbers.set(numbers)
