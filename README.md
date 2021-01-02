@@ -55,8 +55,7 @@
 ### 5. Причины использования связи ManyToMany  
 Изначально планировалось использовать вариант models.ForeignKey, но при тестировании на больших объемах данных происходило следующее:  
 В функции загрузки 
-```def upload_file(request)
-```
+```def upload_file(request)```
 после непосредственного сохранения объекта модели FileСlass 
 ```
 new_file = FileClass.objects.create(obj=data_obj)
