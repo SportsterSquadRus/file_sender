@@ -3,22 +3,26 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .service import FileReader
-from .models import FileClass, Number
+from .models import FileClass
 from django.views.generic import ListView, DetailView, View
 
 
 @require_POST
 @csrf_exempt
 def upload_file(request):
-    files = request.FILES
-    for key in files:
-        data_obj = files[key]
-        numbers = tuple(map(lambda x: Number.objects.create(
-            num=int(x) if str(x).isdecimal() and  256 > int(x) > 0 else 1), 
-            data_obj.read().decode('utf-8').split()))
-        new_file = FileClass.objects.create(obj=data_obj)
-        new_file.numbers.set(numbers)
-    return HttpResponse("files added")
+    files = tuple(request.FILES.values())
+
+    for f in files:
+        new_file = FileClass.objects.create(
+            obj=f, numbers=tuple(
+                map(
+                    lambda x: int(x) if str(x).isdecimal() and 256 > int(
+                        x) > 0 else 1, f.read().decode('utf-8').split()
+                )
+            )
+        )
+
+    return HttpResponse('files added')
 
 
 class FilesListView(ListView):
